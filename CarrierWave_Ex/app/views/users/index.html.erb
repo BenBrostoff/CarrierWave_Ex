@@ -9,3 +9,17 @@
   <%= image_tag(user.avatar.url, size: '200x200') %>
 
 <%end%>
+
+<%= form_for @user, :html => {:multipart => true} do |f| %>
+  <p>
+    <label>My Avatar</label>
+    <br>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+    <br>
+    <%= f.submit "Let's Do It" %>
+  </p>
+<% end %>
