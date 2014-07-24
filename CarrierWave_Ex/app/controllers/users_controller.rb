@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
 
   def index              # size: 800x600
-    @users = User.all
+    @users = User.all.reverse
     @user = ""
   end
 
   def create
     @user = User.create(name: params[:name])
+    @user.avatar = params[:avatar]
+    @user.save!
+    #@user.avatar = File.open('public/app/assets/images')
     redirect_to '/'
   end
 
