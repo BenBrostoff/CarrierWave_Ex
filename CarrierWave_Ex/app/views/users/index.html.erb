@@ -1,18 +1,9 @@
-<h1> Our Users </h1>
-
-<% @users.each do |user| %>
-
-  <%= user.name %>
-  <br>
-  <%= user.avatar.url %>
-  <br><br>
-  <%= image_tag(user.avatar.url, size: '200x200') %>
-
-<%end%>
+<div class="container">
+<h1> The Brostoff CarrierWave Example</h1>
 
 <%= form_for @user, :html => {:multipart => true} do |f| %>
   <p>
-    <label>My Avatar</label>
+    <label>Choose a Picture!</label>
     <br>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -23,3 +14,16 @@
     <%= f.submit "Let's Do It" %>
   </p>
 <% end %>
+
+<% @users.each do |user| %>
+
+  <%= user.name %>
+  <br>
+  <%= user.avatar.url %>
+  <br><br>
+  <%= image_tag(user.avatar.url, size: '200x200') %>
+  <br><br>
+
+<%end%>
+
+</div>
